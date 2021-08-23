@@ -41,8 +41,13 @@
 				},
 				"inputs": [
 					{
-						"referenceName": "DS_ADLS_training_input_cars",
-						"type": "DatasetReference"
+						"referenceName": "DS_ADLS_training_input_common",
+						"type": "DatasetReference",
+						"parameters": {
+							"fileName": "cars.csv",
+							"directoryStructure": "source1\\vehicles",
+							"containerName": "input"
+						}
 					}
 				],
 				"outputs": [
