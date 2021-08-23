@@ -1,0 +1,20 @@
+{
+	"name": "DS_ADLS_training_input_common",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "LS_ADLS_Training",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"quoteChar": "\""
+		},
+		"schema": []
+	}
+}
