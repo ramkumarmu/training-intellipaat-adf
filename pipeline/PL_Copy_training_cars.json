@@ -28,7 +28,6 @@
 					},
 					"sink": {
 						"type": "AzureSqlSink",
-						"preCopyScript": "TRUNCATE TABLE dbo.Cars",
 						"disableMetricsCollection": false
 					},
 					"enableStaging": false,
@@ -46,9 +45,18 @@
 						"referenceName": "DS_ADLS_training_input_common",
 						"type": "DatasetReference",
 						"parameters": {
-							"fileName": "cars.csv",
-							"directoryStructure": "source1/vehicles",
-							"containerName": "input"
+							"fileName": {
+								"value": "@pipeline().parameters.fileName",
+								"type": "Expression"
+							},
+							"directoryStructure": {
+								"value": "@pipeline().parameters.directoryStructure",
+								"type": "Expression"
+							},
+							"containerName": {
+								"value": "@pipeline().parameters.containerName",
+								"type": "Expression"
+							}
 						}
 					}
 				],
@@ -57,7 +65,10 @@
 						"referenceName": "DS_ASQL_training_output_cars",
 						"type": "DatasetReference",
 						"parameters": {
-							"tableName": "Cars"
+							"tableName": {
+								"value": "@pipeline().parameters.tableName",
+								"type": "Expression"
+							}
 						}
 					}
 				]
