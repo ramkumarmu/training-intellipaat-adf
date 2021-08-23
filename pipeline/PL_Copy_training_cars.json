@@ -55,7 +55,10 @@
 				"outputs": [
 					{
 						"referenceName": "DS_ASQL_training_output_cars",
-						"type": "DatasetReference"
+						"type": "DatasetReference",
+						"parameters": {
+							"tableName": "Cars"
+						}
 					}
 				]
 			}
