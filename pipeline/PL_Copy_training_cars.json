@@ -45,7 +45,7 @@
 						"type": "DatasetReference",
 						"parameters": {
 							"fileName": "cars.csv",
-							"directoryStructure": "source1\\vehicles",
+							"directoryStructure": "source1/vehicles",
 							"containerName": "input"
 						}
 					}
