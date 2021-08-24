@@ -51,30 +51,16 @@
 					},
 					"activities": [
 						{
-							"name": "If Condition1",
-							"type": "IfCondition",
+							"name": "Set variable1",
+							"type": "SetVariable",
 							"dependsOn": [],
 							"userProperties": [],
 							"typeProperties": {
-								"expression": {
-									"value": "@activity('GetFileList').output.childitem.type = \"File\"",
+								"variableName": "FileName",
+								"value": {
+									"value": "@item().name",
 									"type": "Expression"
-								},
-								"ifTrueActivities": [
-									{
-										"name": "Set variable1",
-										"type": "SetVariable",
-										"dependsOn": [],
-										"userProperties": [],
-										"typeProperties": {
-											"variableName": "FileName",
-											"value": {
-												"value": "@item().name",
-												"type": "Expression"
-											}
-										}
-									}
-								]
+								}
 							}
 						}
 					]
@@ -94,10 +80,13 @@
 				"userProperties": [],
 				"typeProperties": {
 					"items": {
-						"value": "@activity('GetFileList').output.childitems.type",
+						"value": "@activity('GetFileList').output.childitems",
 						"type": "Expression"
 					},
-					"condition": ""
+					"condition": {
+						"value": "@contains(item().type,'file')",
+						"type": "Expression"
+					}
 				}
 			}
 		],
