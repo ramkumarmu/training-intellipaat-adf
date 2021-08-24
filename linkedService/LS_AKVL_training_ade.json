@@ -1,0 +1,10 @@
+{
+	"name": "LS_AKVL_training_ade",
+	"properties": {
+		"annotations": [],
+		"type": "AzureKeyVault",
+		"typeProperties": {
+			"baseUrl": "https://kv-training-ade.vault.azure.net/"
+		}
+	}
+}
