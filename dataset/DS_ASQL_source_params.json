@@ -1,5 +1,5 @@
 {
-	"name": "DS_ASQL_sink_params",
+	"name": "DS_ASQL_source_params",
 	"properties": {
 		"linkedServiceName": {
 			"referenceName": "LS_ASQL_Training",

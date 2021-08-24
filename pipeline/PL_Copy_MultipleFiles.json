@@ -22,7 +22,7 @@
 						"partitionOption": "None"
 					},
 					"dataset": {
-						"referenceName": "DS_ASQL_source_noparams",
+						"referenceName": "DS_ASQL_sink_noparams",
 						"type": "DatasetReference"
 					},
 					"firstRowOnly": false
@@ -64,7 +64,7 @@
 							},
 							"inputs": [
 								{
-									"referenceName": "DS_ASQL_sink_params",
+									"referenceName": "DS_ASQL_source_params",
 									"type": "DatasetReference",
 									"parameters": {
 										"tableName": {

@@ -63,7 +63,7 @@
 				],
 				"outputs": [
 					{
-						"referenceName": "DS_ASQL_sink_params",
+						"referenceName": "DS_ASQL_source_params",
 						"type": "DatasetReference",
 						"parameters": {
 							"tableName": {
