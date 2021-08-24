@@ -1,0 +1,17 @@
+{
+	"name": "LS_File_MyLocalMachine",
+	"type": "Microsoft.DataFactory/factories/linkedservices",
+	"properties": {
+		"annotations": [],
+		"type": "FileServer",
+		"typeProperties": {
+			"host": "C:\\Users\\ramkumur\\Documents\\Integration Runtime",
+			"userId": "kul-dc\\ramkumur",
+			"encryptedCredential": "eyJDcmVkZW50aWFsSWQiOiJlYTQwMzIxOC04ZDExLTQwZTAtYWI2MS1iZGYzZTE1YTIxMmEiLCJWZXJzaW9uIjoiMi4wIiwiQ2xhc3NUeXBlIjoiTWljcm9zb2Z0LkRhdGFQcm94eS5Db3JlLkludGVyU2VydmljZURhdGFDb250cmFjdC5DcmVkZW50aWFsU1UwNkNZMTQifQ=="
+		},
+		"connectVia": {
+			"referenceName": "IR-training-ade",
+			"type": "IntegrationRuntimeReference"
+		}
+	}
+}
