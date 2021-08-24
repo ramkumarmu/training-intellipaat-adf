@@ -1,0 +1,12 @@
+{
+	"name": "DS_ASQL_training_Input",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "LS_ASQL_Training",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": []
+	}
+}
