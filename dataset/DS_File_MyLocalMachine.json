@@ -1,0 +1,21 @@
+{
+	"name": "DS_File_MyLocalMachine",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "LS_File_MyLocalMachine",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "FileServerLocation"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": []
+	}
+}
