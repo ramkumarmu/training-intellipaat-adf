@@ -1,0 +1,17 @@
+{
+	"name": "tr-storage-event",
+	"properties": {
+		"annotations": [],
+		"runtimeState": "Stopped",
+		"pipelines": [],
+		"type": "BlobEventsTrigger",
+		"typeProperties": {
+			"blobPathBeginsWith": "/input/blobs/",
+			"ignoreEmptyBlobs": true,
+			"scope": "/subscriptions/40c14f4b-18c2-473c-b284-f84e1b5e8b49/resourceGroups/rg-training-azure-data-engineer/providers/Microsoft.Storage/storageAccounts/satrainingade",
+			"events": [
+				"Microsoft.Storage.BlobCreated"
+			]
+		}
+	}
+}
