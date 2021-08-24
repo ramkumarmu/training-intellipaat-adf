@@ -1,5 +1,5 @@
 {
-	"name": "DS_ASQL_training_Input",
+	"name": "DS_ASQL_source_noparams",
 	"properties": {
 		"linkedServiceName": {
 			"referenceName": "LS_ASQL_Training",

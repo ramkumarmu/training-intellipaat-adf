@@ -1,5 +1,5 @@
 {
-	"name": "DS_ADLS_training_input_cars",
+	"name": "DS_ADLS_source_noparams",
 	"properties": {
 		"linkedServiceName": {
 			"referenceName": "LS_ADLS_Training",

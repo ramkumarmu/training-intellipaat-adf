@@ -1,9 +1,9 @@
 {
-	"name": "PL_Copy_training",
+	"name": "PL_6_StorageEventsTrigger",
 	"properties": {
 		"activities": [
 			{
-				"name": "CP_files",
+				"name": "CP_ADLS_ASQL",
 				"type": "Copy",
 				"dependsOn": [],
 				"policy": {
@@ -27,9 +27,7 @@
 						}
 					},
 					"sink": {
-						"type": "AzureSqlSink",
-						"tableOption": "autoCreate",
-						"disableMetricsCollection": false
+						"type": "AzureSqlSink"
 					},
 					"enableStaging": false,
 					"translator": {
@@ -47,15 +45,15 @@
 						"type": "DatasetReference",
 						"parameters": {
 							"fileName": {
-								"value": "@pipeline().parameters.fileName",
+								"value": "@pipeline().parameters.FileName",
 								"type": "Expression"
 							},
 							"directoryStructure": {
-								"value": "@pipeline().parameters.directoryStructure",
+								"value": "@pipeline().parameters.DirectoryStructure",
 								"type": "Expression"
 							},
 							"containerName": {
-								"value": "@pipeline().parameters.containerName",
+								"value": "@pipeline().parameters.ContainerName",
 								"type": "Expression"
 							}
 						}
@@ -64,28 +62,22 @@
 				"outputs": [
 					{
 						"referenceName": "DS_ASQL_sink_params",
-						"type": "DatasetReference",
-						"parameters": {
-							"tableName": {
-								"value": "@pipeline().parameters.tableName",
-								"type": "Expression"
-							}
-						}
+						"type": "DatasetReference"
 					}
 				]
 			}
 		],
 		"parameters": {
-			"fileName": {
+			"FileName": {
 				"type": "string"
 			},
-			"directoryStructure": {
+			"DirectoryStructure": {
 				"type": "string"
 			},
-			"containerName": {
+			"ContainerName": {
 				"type": "string"
 			},
-			"tableName": {
+			"TableName": {
 				"type": "string"
 			}
 		},

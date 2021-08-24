@@ -1,5 +1,5 @@
 {
-	"name": "DS_ADLS_training_input_common",
+	"name": "DS_ADLS_source_params",
 	"properties": {
 		"linkedServiceName": {
 			"referenceName": "LS_ADLS_Training",

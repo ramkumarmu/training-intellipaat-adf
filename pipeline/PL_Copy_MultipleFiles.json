@@ -22,7 +22,7 @@
 						"partitionOption": "None"
 					},
 					"dataset": {
-						"referenceName": "DS_ASQL_training_Input",
+						"referenceName": "DS_ASQL_source_noparams",
 						"type": "DatasetReference"
 					},
 					"firstRowOnly": false
@@ -64,7 +64,7 @@
 							},
 							"inputs": [
 								{
-									"referenceName": "DS_ASQL_training_output_cars",
+									"referenceName": "DS_ASQL_sink_params",
 									"type": "DatasetReference",
 									"parameters": {
 										"tableName": {

@@ -1,5 +1,5 @@
 {
-	"name": "DS_ASQL_training_output_cars",
+	"name": "DS_ASQL_sink_params",
 	"properties": {
 		"linkedServiceName": {
 			"referenceName": "LS_ASQL_Training",
