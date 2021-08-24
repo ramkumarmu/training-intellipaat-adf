@@ -17,7 +17,7 @@
 				"typeProperties": {
 					"source": {
 						"type": "AzureSqlSource",
-						"sqlReaderQuery": "select name from sys.tables",
+						"sqlReaderQuery": "select 'dbo',name from sys.tables",
 						"queryTimeout": "02:00:00",
 						"partitionOption": "None"
 					},
