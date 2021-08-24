@@ -1,9 +1,9 @@
 {
-	"name": "PL_Copy_training_cars",
+	"name": "PL_Copy_training",
 	"properties": {
 		"activities": [
 			{
-				"name": "CP_training_cars",
+				"name": "CP_files",
 				"type": "Copy",
 				"dependsOn": [],
 				"policy": {
@@ -28,10 +28,6 @@
 					},
 					"sink": {
 						"type": "AzureSqlSink",
-						"preCopyScript": {
-							"value": "'truncate table dbo.'+ @pipeline().parameters.tableName",
-							"type": "Expression"
-						},
 						"disableMetricsCollection": false
 					},
 					"enableStaging": false,
