@@ -1,0 +1,85 @@
+{
+	"name": "PL_11_CosmosDB",
+	"properties": {
+		"activities": [
+			{
+				"name": "Copy data1",
+				"type": "Copy",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"source": {
+						"type": "DelimitedTextSource",
+						"storeSettings": {
+							"type": "AzureBlobFSReadSettings",
+							"recursive": true,
+							"enablePartitionDiscovery": false
+						},
+						"formatSettings": {
+							"type": "DelimitedTextReadSettings"
+						}
+					},
+					"sink": {
+						"type": "CosmosDbSqlApiSink",
+						"writeBehavior": "insert"
+					},
+					"enableStaging": false
+				},
+				"inputs": [
+					{
+						"referenceName": "DS_ADLS_source_params",
+						"type": "DatasetReference",
+						"parameters": {
+							"fileName": {
+								"value": "@pipeline().parameters.FileName",
+								"type": "Expression"
+							},
+							"directoryStructure": {
+								"value": "@pipeline().parameters.DirectoryStructure",
+								"type": "Expression"
+							},
+							"containerName": {
+								"value": "@pipeline().parameters.ContainerName",
+								"type": "Expression"
+							}
+						}
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "DS_CMDB_Training",
+						"type": "DatasetReference",
+						"parameters": {
+							"CollectionName": {
+								"value": "@pipeline().parameters.CollectionName",
+								"type": "Expression"
+							}
+						}
+					}
+				]
+			}
+		],
+		"parameters": {
+			"FileName": {
+				"type": "string"
+			},
+			"DirectoryStructure": {
+				"type": "string"
+			},
+			"ContainerName": {
+				"type": "string"
+			},
+			"CollectionName": {
+				"type": "string"
+			}
+		},
+		"annotations": []
+	}
+}
