@@ -1,6 +1,77 @@
 {
-	"name": "PL_8_Email",
+	"name": "PL_9_Email",
 	"properties": {
+		"activities": [
+			{
+				"name": "Execute Pipeline - PL_Filter",
+				"type": "ExecutePipeline",
+				"dependsOn": [],
+				"userProperties": [],
+				"typeProperties": {
+					"pipeline": {
+						"referenceName": "PL_7_Filter",
+						"type": "PipelineReference"
+					},
+					"waitOnCompletion": true
+				}
+			},
+			{
+				"name": "Send Success Email Notification",
+				"type": "WebActivity",
+				"dependsOn": [
+					{
+						"activity": "Execute Pipeline - PL_Filter",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"url": "https://prod-233.westeurope.logic.azure.com:443/workflows/c5b6c29ac2b546f099631272850bcd59/triggers/manual/paths/invoke?api-version=2016-10-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=RYYlz4ZRepzbqIDoLr2Wra2p0KOjJMyCDzvBWYXJaVw",
+					"method": "POST",
+					"body": {
+						"value": "{\n    \"title\": \"@{activity('Execute Pipeline - PL_Filter').output.pipelineName} SUCCEEDED!\",\n    \"message\": \"Pipeline run finished successfully!\",\n    \"color\": \"Green\",\n    \"dataFactoryName\": \"@{pipeline().DataFactory}\",\n    \"pipelineName\": \"@{activity('Execute Pipeline - PL_Filter').output.pipelineName}\",\n    \"pipelineRunId\": \"@{activity('Execute Pipeline - PL_Filter').output.pipelineRunId}\",\n    \"time\": \"@{utcnow()}\"\n}",
+						"type": "Expression"
+					}
+				}
+			},
+			{
+				"name": "Send Failure Email Notification_copy1",
+				"type": "WebActivity",
+				"dependsOn": [
+					{
+						"activity": "Execute Pipeline - PL_Filter",
+						"dependencyConditions": [
+							"Failed"
+						]
+					}
+				],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"url": "https://prod-233.westeurope.logic.azure.com:443/workflows/c5b6c29ac2b546f099631272850bcd59/triggers/manual/paths/invoke?api-version=2016-10-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=RYYlz4ZRepzbqIDoLr2Wra2p0KOjJMyCDzvBWYXJaVw",
+					"method": "POST",
+					"body": {
+						"value": "{\n    \"title\": \"@{activity('Execute Pipeline - PL_Filter').output.pipelineName} FAILED!\",\n    \"message\": \"Error: @{activity('Execute Pipeline - PL_Filter').error.message}\",\n    \"color\": \"Red\",\n    \"dataFactoryName\": \"@{pipeline().DataFactory}\",\n    \"pipelineName\": \"@{activity('Execute Pipeline - PL_Filter').output.pipelineName}\",\n    \"pipelineRunId\": \"@{activity('Execute Pipeline - PL_Filter').output.pipelineRunId}\",\n    \"time\": \"@{utcnow()}\"\n }",
+						"type": "Expression"
+					}
+				}
+			}
+		],
 		"annotations": []
 	}
 }
