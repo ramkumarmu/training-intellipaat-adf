@@ -37,7 +37,7 @@
 				"type": "ForEach",
 				"dependsOn": [
 					{
-						"activity": "Filter1",
+						"activity": "FilterFiles",
 						"dependencyConditions": [
 							"Succeeded"
 						]
@@ -46,7 +46,7 @@
 				"userProperties": [],
 				"typeProperties": {
 					"items": {
-						"value": "@activity('GetFileList').output.childitems",
+						"value": "@activity('FilterFiles').output.value.name",
 						"type": "Expression"
 					},
 					"activities": [
@@ -67,7 +67,7 @@
 				}
 			},
 			{
-				"name": "Filter1",
+				"name": "FilterFiles",
 				"type": "Filter",
 				"dependsOn": [
 					{
@@ -84,7 +84,7 @@
 						"type": "Expression"
 					},
 					"condition": {
-						"value": "@contains(item().type,'file')",
+						"value": "@contains(item().type,'File')",
 						"type": "Expression"
 					}
 				}
