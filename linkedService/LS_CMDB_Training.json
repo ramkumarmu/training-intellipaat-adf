@@ -1,0 +1,12 @@
+{
+	"name": "LS_CMDB_Training",
+	"type": "Microsoft.DataFactory/factories/linkedservices",
+	"properties": {
+		"annotations": [],
+		"type": "CosmosDb",
+		"typeProperties": {
+			"connectionString": "AccountEndpoint=https://cdtraining.documents.azure.com:443/;Database=CMDB_Database;",
+			"encryptedCredential": "ew0KICAiVmVyc2lvbiI6ICIyMDE3LTExLTMwIiwNCiAgIlByb3RlY3Rpb25Nb2RlIjogIktleSIsDQogICJTZWNyZXRDb250ZW50VHlwZSI6ICJQbGFpbnRleHQiLA0KICAiQ3JlZGVudGlhbElkIjogIkFERi1UUkFJTklORy1BWlVSRS1EQVRBLUVOR0lORUVSX2MyODNhY2FjLWNiOWUtNGI3OC05YmRkLWNhY2FhODAwM2JjOSINCn0="
+		}
+	}
+}
