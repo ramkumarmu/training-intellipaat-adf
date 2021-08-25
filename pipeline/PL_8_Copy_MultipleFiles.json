@@ -41,6 +41,10 @@
 				],
 				"userProperties": [],
 				"typeProperties": {
+					"items": {
+						"value": "@activity('GetTables').output.childitems",
+						"type": "Expression"
+					},
 					"activities": [
 						{
 							"name": "Copy data1",
