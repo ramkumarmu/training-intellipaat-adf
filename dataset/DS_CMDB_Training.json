@@ -5,8 +5,19 @@
 			"referenceName": "LS_CMDB_Training",
 			"type": "LinkedServiceReference"
 		},
+		"parameters": {
+			"CollectionName": {
+				"type": "string"
+			}
+		},
 		"annotations": [],
 		"type": "CosmosDbSqlApiCollection",
-		"schema": {}
+		"schema": {},
+		"typeProperties": {
+			"collectionName": {
+				"value": "@dataset().CollectionName",
+				"type": "Expression"
+			}
+		}
 	}
 }
