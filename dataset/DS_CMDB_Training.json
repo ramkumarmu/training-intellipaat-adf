@@ -1,0 +1,12 @@
+{
+	"name": "DS_CMDB_Training",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "LS_CMDB_Training",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "CosmosDbSqlApiCollection",
+		"schema": {}
+	}
+}
