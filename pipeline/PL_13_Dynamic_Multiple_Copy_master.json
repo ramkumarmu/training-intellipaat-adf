@@ -67,7 +67,7 @@
 										"type": "Expression"
 									},
 									"stgTableName": {
-										"value": "concat('staging_',@item().TableName)",
+										"value": "@concat('staging_',item().Tablename)",
 										"type": "Expression"
 									}
 								}
