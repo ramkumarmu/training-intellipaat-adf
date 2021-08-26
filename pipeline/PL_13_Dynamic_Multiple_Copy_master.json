@@ -59,15 +59,15 @@
 								"waitOnCompletion": false,
 								"parameters": {
 									"TgtTableName": {
-										"value": "@item().TableName",
+										"value": "@{item().TableName}",
 										"type": "Expression"
 									},
 									"WaterMarkColumn": {
-										"value": "@item().WaterMarkColumn",
+										"value": "@{item().WaterMarkColumn}",
 										"type": "Expression"
 									},
 									"stgTableName": {
-										"value": "@concat('staging_',item().Tablename)",
+										"value": "@{concat('staging_',item().Tablename)}",
 										"type": "Expression"
 									}
 								}
