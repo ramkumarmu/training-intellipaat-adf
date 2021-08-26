@@ -17,7 +17,10 @@
 				"typeProperties": {
 					"source": {
 						"type": "AzureSqlSource",
-						"sqlReaderQuery": "Select TableName, WaterMarkValue From dbo.watermarktable WHERE TableName = '@{pipeline().parameters.TableName}'",
+						"sqlReaderQuery": {
+							"value": "Select TableName, WaterMarkValue From dbo.watermarktable WHERE TableName = '@{pipeline().parameters.TgtTableName}'",
+							"type": "Expression"
+						},
 						"queryTimeout": "02:00:00",
 						"partitionOption": "None"
 					},
@@ -42,7 +45,10 @@
 				"typeProperties": {
 					"source": {
 						"type": "AzureSqlSource",
-						"sqlReaderQuery": "SELECT max(@{pipeline().parameters.WaterMarkColumn}) AS NewWaterMarkValue FROM @{pipeline().parameters.TableName}",
+						"sqlReaderQuery": {
+							"value": "SELECT max(@{pipeline().parameters.WaterMarkColumn}) AS NewWaterMarkValue FROM @{pipeline().parameters.TgtTableName}",
+							"type": "Expression"
+						},
 						"queryTimeout": "02:00:00",
 						"partitionOption": "None"
 					},
