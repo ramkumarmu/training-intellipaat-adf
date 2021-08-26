@@ -1,0 +1,25 @@
+{
+	"name": "DS_ASQL_Config",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "LS_ASQL_Training",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [
+			{
+				"name": "TableName",
+				"type": "nvarchar"
+			},
+			{
+				"name": "WaterMarkColumn",
+				"type": "nvarchar"
+			}
+		],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "ConfigurationTable"
+		}
+	}
+}
