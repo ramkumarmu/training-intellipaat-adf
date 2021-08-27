@@ -1,5 +1,5 @@
 {
-	"name": "dataflow1",
+	"name": "DF_Join_Dept_Emp",
 	"properties": {
 		"type": "MappingDataFlow",
 		"typeProperties": {
