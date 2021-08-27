@@ -1,0 +1,39 @@
+{
+	"name": "dataflow1",
+	"properties": {
+		"type": "MappingDataFlow",
+		"typeProperties": {
+			"sources": [
+				{
+					"dataset": {
+						"referenceName": "DS_ADLS_Department",
+						"type": "DatasetReference"
+					},
+					"name": "SourceDept"
+				},
+				{
+					"dataset": {
+						"referenceName": "DS_ADLS_employee",
+						"type": "DatasetReference"
+					},
+					"name": "SourceEmp"
+				}
+			],
+			"sinks": [
+				{
+					"dataset": {
+						"referenceName": "DS_ASQL_source_params",
+						"type": "DatasetReference"
+					},
+					"name": "SinkDeptEmp"
+				}
+			],
+			"transformations": [
+				{
+					"name": "JoinDeptEmp"
+				}
+			],
+			"script": "source(output(\n\t\tDEPARTMENT_ID as string,\n\t\tDEPARTMENT_NAME as string,\n\t\tMANAGER_ID as string,\n\t\tLOCATION_ID as string\n\t),\n\tallowSchemaDrift: true,\n\tvalidateSchema: false,\n\tignoreNoFilesFound: false) ~> SourceDept\nsource(output(\n\t\tEMPLOYEE_ID as string,\n\t\tFIRST_NAME as string,\n\t\tLAST_NAME as string,\n\t\tEMAIL as string,\n\t\tPHONE_NUMBER as string,\n\t\tHIRE_DATE as string,\n\t\tJOB_ID as string,\n\t\tSALARY as string,\n\t\tCOMMISSION_PCT as string,\n\t\tMANAGER_ID as string,\n\t\tDEPARTMENT_ID as string\n\t),\n\tallowSchemaDrift: true,\n\tvalidateSchema: false,\n\tignoreNoFilesFound: false) ~> SourceEmp\nSourceDept, SourceEmp join(SourceDept@DEPARTMENT_ID == SourceEmp@DEPARTMENT_ID,\n\tjoinType:'inner',\n\tbroadcast: 'auto')~> JoinDeptEmp\nJoinDeptEmp sink(allowSchemaDrift: true,\n\tvalidateSchema: false,\n\tdeletable:true,\n\tinsertable:true,\n\tupdateable:true,\n\tupsertable:true,\n\tformat: 'table',\n\tskipDuplicateMapInputs: true,\n\tskipDuplicateMapOutputs: true,\n\terrorHandlingOption: 'stopOnFirstError') ~> SinkDeptEmp"
+		}
+	}
+}
