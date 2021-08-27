@@ -45,6 +45,7 @@
 						"type": "Expression"
 					},
 					"isSequential": false,
+					"batchCount": 4,
 					"activities": [
 						{
 							"name": "Execute Pipeline1",
